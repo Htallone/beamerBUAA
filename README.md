@@ -33,7 +33,7 @@ make presentation
 ![shot-presentation](shot-BUAA.png)
 
 
-## presentationBUAAIEEE
+## beamerthemeBUAAIEEE
 
 另一个简洁的beamer模板，是在参加IEEE国际会议时使用的，加入了IEEE的Logo和北航的Logo
 
