@@ -11,6 +11,7 @@
 一个带有导航栏的beamer模板
 
 模板文件 beamerthemeBUAA.sty
+
 示例文件 presentation.tex
 
 示例文件中有很多包是具体用到的，这里是多余的，并没有删掉。
@@ -28,6 +29,7 @@ make presentation
 ```
 
 截图如下，标题页的背景图片是从以前ppt模板里扒下来的，作者信息不明，可以自己重新设计：
+
 ![shot-presentation](shot-BUAA.png)
 
 
@@ -50,6 +52,7 @@ xelatex presentationIEEE.tex
 make presentationIEEE
 ```
 截图如下：
+
 ![shot-presentationIEEE](shot-IEEE.png)
 
 # License
