@@ -38,6 +38,7 @@ make presentation
 另一个简洁的beamer模板，是在参加IEEE国际会议时使用的，加入了IEEE的Logo和北航的Logo
 
 模板文件 beamerthemeBUAAIEEE.sty
+
 示例文件 presentationIEEE.tex
 
 
