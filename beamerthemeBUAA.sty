@@ -1,0 +1,787 @@
+
+\mode<presentation>
+
+%%%%%% globle package
+\RequirePackage{ifthen}
+\RequirePackage{pgf}
+
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+
+%%%%% font/color define
+%\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
+%\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
+%\RequirePackage{txfonts}
+
+
+\usepackage[scheme=plain]{ctex}
+%\renewcommand\CJKfamilydefault{\CJKsfdefault}
+\setmainfont{Times New Roman}
+\setCJKfamilyfont{hwxingkai}{STXingkai}
+\newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
+\newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
+\newfontfamily \timesnewromanfont[]{Times New Roman}
+
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}      % 字号设置
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    % 字号设置
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   % 字号设置
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\myxiaoliuhao}{\fontsize{6.5pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    % 字号设置
+
+\RequirePackage{color}
+\definecolor{buaadarkgreen}{rgb}{0,0.6,0}
+\definecolor{buaagray}{rgb}{0.5,0.5,0.5}
+\definecolor{buaamauve}{rgb}{0.58,0,0.82}
+\definecolor{buaaorange}{rgb}{.953 ,.502 ,.04}
+\definecolor{buaadarkblue}{HTML}{064F6F}
+\definecolor{buaalightblue}{HTML}{0099d5}
+\definecolor{buaalightgray}{HTML}{eeeeee}
+\definecolor{buaablue}{rgb}{.13 ,.43 ,.68}
+
+%%%%%% Chinese name
+
+\renewcommand{\contentsname}{目\qquad 录}
+\renewcommand\listfigurename{插\ 图\ 目\ 录}
+\renewcommand\listtablename{表\ 格\ 目\ 录}
+\renewcommand\bibname{参\ 考\ 文\ 献}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer BUAA theme %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 这里还可以选择别的主题Bergen,Boadilla,Madrid,AnnArbor,CambridgeUS,Pittsburgh
+% Rochester. 有导航栏的Antibes,JuanLesPins,Montpellier,有内容的Berkeley,PaloAlto,
+% Goettingen,Marburg,Hannover,有最小导航栏的Berlin,Ilmenau,Dresden,Darmstadt,
+% Frankfurt,Singapore,Szeged,有章和节表单的Copenhagen,Luebeck,Malmoe,Warsaw
+% Settings
+%\usetheme{Rochester}
+% \usetheme{Warsaw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer BUAA theme end %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer color theme %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% color主题一般选择动物来命名
+% 这里还可以选择别的颜色主题,如默认的和有特别目的的颜色主题default,structure,sidebartab,全颜色主题albatross,
+% beetle,crane,dove,fly,seagull,wolverine,beaver
+%\usecolortheme{whale}
+% 内部颜色主题一般选择植物来命名
+% 这里还可以选择别的颜色主题,如默认的和有特别目的的颜色主题lily,orchid,rose
+%\usecolortheme{orchid}
+
+%%color define
+%front page and footer 
+\definecolor{top}{RGB}{190,210,255}
+\definecolor{title}{RGB}{0,20,80}
+\definecolor{divider1}{RGB}{0,33,71}
+\definecolor{divider2}{RGB}{30,50,110}
+\definecolor{divider3}{RGB}{90,110,170}
+
+%background
+\definecolor{bgcol}{RGB}{255,255,255}
+%slide titles
+\definecolor{slidetitle}{RGB}{0,33,71}
+%main text colour
+\definecolor{maintext}{RGB}{0,33,71}
+%line under each slide's title
+\definecolor{dividerline}{RGB}{0,0,0}
+%headers on all pages, other than first
+\definecolor{header}{RGB}{0,33,71}
+%bullet points 
+\definecolor{bullets}{RGB}{0,33,71}
+\definecolor{titlecolor}{RGB}{31, 73, 125}
+
+
+% color Settings
+% \setbeamercolor*{⟨beamer-color name⟩}{⟨options⟩} The ⟨beamer-color name⟩ should be a reasonably simple text
+% beamer user guide 17.2.3
+
+%%%%%%from color theme default
+\definecolor{beamer@blendedblue}{rgb}{0.2,0.2,0.7} % use structure theme to change
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=green!50!black}
+
+\setbeamercolor{structure}{fg=beamer@blendedblue}
+
+\setbeamercolor{background canvas}{parent=normal text}
+\setbeamercolor{background}{parent=background canvas}
+
+\setbeamercolor{palette primary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=structure.fg!75!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=structure.fg!50!black}
+\setbeamercolor{palette quaternary}{fg=black}
+
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+
+\setbeamercolor{math text}{}
+\setbeamercolor{math text inlined}{parent=math text}
+\setbeamercolor{math text displayed}{parent=math text}
+
+\setbeamercolor{normal text in math text}{}
+
+\setbeamercolor{local structure}{parent=structure}
+
+\setbeamercolor{titlelike}{parent=structure}
+
+\setbeamercolor{title}{parent=titlelike}
+\setbeamercolor{title in head/foot}{parent=palette quaternary}
+\setbeamercolor{title in sidebar}{parent=palette sidebar quaternary}
+
+\setbeamercolor{subtitle}{parent=title}
+
+\setbeamercolor{author}{}
+\setbeamercolor{author in head/foot}{parent=palette primary}
+\setbeamercolor{author in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+\setbeamercolor{institute}{}
+\setbeamercolor{institute in head/foot}{parent=palette tertiary}
+\setbeamercolor{institute in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+\setbeamercolor{date}{}
+\setbeamercolor{date in head/foot}{parent=palette secondary}
+\setbeamercolor{date in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+\setbeamercolor{titlegraphic}{}
+
+\setbeamercolor{part name}{}
+\setbeamercolor{part title}{parent=titlelike}
+
+\setbeamercolor{section name}{}
+\setbeamercolor{section title}{parent=titlelike}
+
+\setbeamercolor{section in toc}{parent=structure}
+\setbeamercolor{section in toc shaded}{parent=section in toc}
+\setbeamercolor{section in head/foot}{parent=palette tertiary}
+\setbeamercolor{section in sidebar}{parent=palette sidebar secondary}
+\setbeamercolor{section in sidebar shaded}{use=section in sidebar,fg=section in sidebar.fg!40!bg}
+\setbeamercolor{section number projected}{parent=item projected}
+
+\setbeamercolor{subsection name}{}
+\setbeamercolor{subsection title}{parent=titlelike}
+
+\setbeamercolor{subsection in toc}{}
+\setbeamercolor{subsection in toc shaded}{parent=subsection in toc}
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{subsection in sidebar}{parent=palette sidebar primary}
+\setbeamercolor{subsection in sidebar shaded}{use=subsection in sidebar,fg=subsection in sidebar.fg!40!bg}
+\setbeamercolor{subsection number projected}{parent={subitem projected}}
+
+\setbeamercolor{subsubsection in toc}{parent=subsection in toc}
+\setbeamercolor{subsubsection in toc shaded}{parent=subsubsection in toc}
+\setbeamercolor{subsubsection in head/foot}{parent=subsection in head/foot}
+\setbeamercolor{subsubsection in sidebar}{parent=subsection in sidebar}
+\setbeamercolor{subsubsection in sidebar shaded}{parent=subsection in sidebar shaded}
+\setbeamercolor{subsubsection number projected}{parent=subsubitem projected}
+
+\setbeamercolor{headline}{}
+\setbeamercolor{footline}{}
+
+\setbeamercolor{sidebar}{}
+\setbeamercolor{sidebar left}{parent=sidebar}
+\setbeamercolor{sidebar right}{parent=sidebar}
+
+\setbeamercolor{logo}{parent=palette secondary}
+
+\setbeamercolor{frametitle}{parent=titlelike}
+\setbeamercolor{framesubtitle}{parent=frametitle}
+
+\setbeamercolor{frametitle right}{parent=frametitle}
+
+\setbeamercolor{caption}{}
+\setbeamercolor{caption name}{parent=structure}
+
+\setbeamercolor{button}{use=local structure,bg=local structure.fg!50!bg,fg=white}
+\setbeamercolor{button border}{use=button,fg=button.bg}
+\setbeamercolor{navigation symbols}{use=structure,fg=structure.fg!40!bg}
+\setbeamercolor{navigation symbols dimmed}{use=structure,fg=structure.fg!20!bg}
+\setbeamercolor{mini frame}{parent=section in head/foot}
+
+\setbeamercolor{block body}{}
+\setbeamercolor{block body alerted}{}
+\setbeamercolor{block body example}{}
+\setbeamercolor{block title}{parent=structure}
+\setbeamercolor{block title alerted}{parent=alerted text}
+\setbeamercolor{block title example}{parent=example text}
+
+\setbeamercolor{item}{parent=local structure}
+\setbeamercolor{subitem}{parent=item}
+\setbeamercolor{subsubitem}{parent=subitem}
+
+\setbeamercolor{item projected}{parent=item,use=item,fg=white,bg=item.fg}
+\setbeamercolor{subitem projected}{parent=item projected}
+\setbeamercolor{subsubitem projected}{parent=subitem projected}
+
+\setbeamercolor{enumerate item}{parent=item}
+\setbeamercolor{enumerate subitem}{parent=subitem}
+\setbeamercolor{enumerate subsubitem}{parent=subsubitem}
+
+\setbeamercolor{itemize item}{parent=item}
+\setbeamercolor{itemize subitem}{parent=subitem}
+\setbeamercolor{itemize subsubitem}{parent=subsubitem}
+
+\setbeamercolor{itemize/enumerate body}{}
+\setbeamercolor{itemize/enumerate subbody}{}
+\setbeamercolor{itemize/enumerate subsubbody}{}
+
+\setbeamercolor{description item}{parent=item}
+
+\setbeamercolor{bibliography item}{parent=item}
+
+\setbeamercolor{bibliography entry author}{use=structure,fg=structure.fg}
+\setbeamercolor{bibliography entry title}{use=normal text,fg=normal text.fg}
+\setbeamercolor{bibliography entry location}{use=structure,fg=structure.fg!65!bg}
+\setbeamercolor{bibliography entry note}{use=structure,fg=structure.fg!65!bg}
+
+\setbeamercolor{separation line}{}
+
+\setbeamercolor{upper separation line head}{parent=separation line}
+\setbeamercolor{middle separation line head}{parent=separation line}
+\setbeamercolor{lower separation line head}{parent=separation line}
+
+\setbeamercolor{upper separation line foot}{parent=separation line}
+\setbeamercolor{middle separation line foot}{parent=separation line}
+\setbeamercolor{lower separation line foot}{parent=separation line}
+
+\setbeamercolor{abstract}{}
+\setbeamercolor{abstract title}{parent=structure}
+
+\setbeamercolor{verse}{}
+
+\setbeamercolor{quotation}{}
+\setbeamercolor{quote}{parent=quotation}
+
+\setbeamercolor{page number in head/foot}{fg=fg!50!bg}
+
+\setbeamercolor{qed symbol}{parent=structure}
+
+\setbeamercolor{note page}{bg=white!90!black, fg=black}
+\setbeamercolor{note title}{bg=white!80!black, fg=black}
+\setbeamercolor{note date}{parent=note title}
+
+
+
+%%%%%%%color special set override
+\setbeamercolor{title page header}         {fg=black,bg=}
+\setbeamercolor{author}                    {fg=black,bg=}
+\setbeamercolor{date}                      {fg=black,bg=}
+\setbeamercolor{institute}                 {fg=black,bg=}
+\setbeamercolor{author in head/foot}       {fg=black,bg=}
+\setbeamercolor{title in head/foot}        {fg=black,bg=}
+\setbeamercolor{date in head/foot}         {fg=black,bg=}
+\setbeamercolor{page number in head/foot}  {fg=black,bg=}
+
+\setbeamercolor{palette divider}           {bg=dividerline}
+
+\setbeamercolor{normal text}                {fg=black,bg=}
+\setbeamercolor{part title}                {fg=black,bg=black}
+\setbeamercolor{item}                      {fg=bullets}
+\setbeamercolor{separation line}           {}
+\setbeamercolor{fine separation line}      {}
+
+%frame title bar background
+\setbeamercolor{Title bar}                 {fg=black,bg=slidetitle}
+\setbeamercolor{Location bar}              {fg=black,bg=buaalightgray}
+\setbeamercolor{block title}               {fg=white,bg=buaalightblue}
+\setbeamercolor{block body}                {fg=black,bg=buaalightgray}
+\setbeamercolor{section in head/foot}      {fg=white,bg=buaadarkblue}
+\setbeamercolor{subsection in head/foot}   {fg=white,bg=buaadarkblue}
+%title page title background color
+\setbeamercolor{structure}                  {}
+\setbeamercolor{titlelike}                  {parent=structure}
+\setbeamercolor{title}                      {fg = black}
+\setbeamercolor{frametitle}                 {fg=black,bg=buaadarkblue}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!black}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+
+\setbeamercolor{caption}{fg = black}
+\setbeamercolor{caption name}{parent=caption}
+
+% \setbeamercolor{bibliography item}{fg = black}
+% \setbeamercolor*{bibliography entry title}{fg=red}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer color theme end %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer font theme %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Settings
+\setbeamerfont{normal text}{} % ignored currently
+\setbeamerfont{alerted text}{}
+\setbeamerfont{example text}{}
+
+\setbeamerfont{structure}{}
+\setbeamerfont{tiny structure}{size=\tiny}
+
+\setbeamerfont{title}{size=\Large,family=\heiti,parent=structure}
+\setbeamerfont{title in head/foot}{}
+\setbeamerfont{title in sidebar}{size=\tiny}
+
+\setbeamerfont{subtitle}{size=\normalsize,parent=title}
+
+\setbeamerfont{author}{}
+\setbeamerfont{author in head/foot}{}
+\setbeamerfont{author in sidebar}{size=\tiny}
+
+\setbeamerfont{institute}{}
+\setbeamerfont{institute in head/foot}{}
+\setbeamerfont{institute in sidebar}{}
+
+\setbeamerfont{date}{}
+\setbeamerfont{date in head/foot}{}
+\setbeamerfont{date in sidebar}{}
+
+\setbeamerfont{part name}{size=\LARGE}
+\setbeamerfont{part title}{size=\LARGE,parent=title}
+
+\setbeamerfont{section name}{size=\Large}
+\setbeamerfont{section title}{size=\Large,parent=title}
+
+\setbeamerfont{section in toc}{parent=structure}
+\setbeamerfont{section in toc shaded}{parent=section in toc}
+\setbeamerfont{section in head/foot}{}
+\setbeamerfont{section in sidebar}{size=\tiny}
+\setbeamerfont{section number projected}{size=\small,parent={section in toc,projected text}}
+
+\setbeamerfont{subsection name}{size=\large}
+\setbeamerfont{subsection title}{size=\large,parent=title}
+
+\setbeamerfont{subsection in toc}{}
+\setbeamerfont{subsection in toc shaded}{parent=subsection in toc}
+\setbeamerfont{subsection in head/foot}{}
+\setbeamerfont{subsection in sidebar}{}
+
+\setbeamerfont{subsubsection in toc}{size=\footnotesize}
+\setbeamerfont{subsubsection in toc shaded}{parent=subsubsection in toc}
+\setbeamerfont{subsubsection in head/foot}{}
+\setbeamerfont{subsubsection in sidebar}{}
+
+\setbeamerfont{headline}{parent={tiny structure}}
+\setbeamerfont{footline}{parent={tiny structure}}
+
+\setbeamerfont{sidebar}{size=\Tiny,parent={tiny structure}}
+\setbeamerfont{sidebar left}{parent=sidebar}
+\setbeamerfont{sidebar right}{parent=sidebar}
+
+\setbeamerfont{frametitle}{parent=structure,size=\Large}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
+
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{parent={structure,caption}}
+
+\setbeamerfont{button}{size=\tiny}
+
+\setbeamerfont{block body}{size=\xiaowuhao}
+\setbeamerfont{block body alerted}{size=\xiaowuhao}
+\setbeamerfont{block body example}{size=\xiaowuhao}
+\setbeamerfont{block title}{size=\xiaosihao,parent={structure,block body}}
+\setbeamerfont{block title alerted}{parent={block title,alerted text}}
+\setbeamerfont{block title example}{parent={block title,example text}}
+
+\setbeamerfont{item}{parent=structure}
+\setbeamerfont{subitem}{parent=item}
+\setbeamerfont{subsubitem}{parent=subitem}
+
+\setbeamerfont{item projected}{size=\tiny,parent={item,projected text}}
+\setbeamerfont{subitem projected}{parent=item projected}
+\setbeamerfont{subsubitem projected}{parent=subitem projected}
+
+\setbeamerfont{itemize item}{parent=item}
+\setbeamerfont{itemize subitem}{parent=subitem}
+\setbeamerfont{itemize subsubitem}{parent=subsubitem}
+
+\setbeamerfont{enumerate item}{parent=item}
+\setbeamerfont{enumerate subitem}{parent=subitem}
+\setbeamerfont{enumerate subsubitem}{parent=subsubitem}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+% \setbeamertemplate{itemize/enumerate body begin}{\large}
+% \setbeamertemplate{itemize/enumerate subbody begin}{\tiny}
+
+
+\setbeamerfont{description item}{parent=item}
+
+\setbeamerfont{projected text}{parent={tiny structure}}
+
+\setbeamerfont{abstract}{size=\small}
+\setbeamerfont{abstract title}{parent={abstract,structure},size=\normalsize}
+
+\setbeamerfont{verse}{family=\rmfamily,shape=\itshape}
+
+\setbeamerfont{quotation}{shape=\itshape}
+\setbeamerfont{quote}{parent=quotation}
+
+\setbeamerfont{note page}{size=\small}
+\setbeamerfont{note title}{parent=note page}
+\setbeamerfont{note date}{size=\footnotesize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% special font settings override
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+%\usefonttheme[onlymath]{serif}
+%\usefonttheme[stillsansserifmath]{serif}
+
+
+%\setbeamerfont{frametitle}{family=\timesnewromanfont,size=\Large}
+\setbeamerfont{frametitle}{family=\heiti,size=\Large}
+\setbeamerfont{caption}{size=\liuhao,family=\songti,shape=\bf} %size=\liuhao 1pt
+% \setbeamerfont{caption}{\linespread{1.0}\selectfont{}}
+\setbeamerfont{caption name}{parent={structure,caption}}
+
+% \setbeamerfont*{bibliography entry title}{shape=\itshape}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer font theme end %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%inner themes define how elements inside a slide (items, enumerate, blocks, ...) look
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer inner theme %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Settings
+%%% in beamerbaseauxtemplates.sty
+\setbeamercovered{transparent}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{sections/subsections in toc}[ball]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{items}[ball]
+
+%参考文献格式
+% \bibliographystyle{buaathesis} % 参考文献格式
+% \setbeamertemplate{bibliography item}{text}
+\setbeamertemplate{bibliography item}{\hfill\insertbiblabel}
+\setbeamertemplate{frametitle continuation}[from second]
+% \setbeamertemplate{bibliography entry title}{fg=red}
+% \setbeamertemplate{bibliography entry location}{}
+% \setbeamertemplate{bibliography entry note}{}
+% \setbeamerfont*{bibliography entry title}{shape=\itshape}
+% \setbeamercolor*{bibliography entry title}{fg=red}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black} 
+\setbeamercolor{bibliography entry location}{fg=black} 
+\setbeamercolor{bibliography entry note}{fg=black}  
+
+% \usepackage[sort&compress,super]{natbib}
+% \bibpunct{[}{]}{,}{n}{}{}
+% \usepackage{hypernat}
+% \setlength{\bibsep}{5pt}
+
+%%numeric ieee chem-angew nature phys
+  \usepackage[
+    backend=biber,
+    style=ieee,
+  ]{biblatex}
+\renewcommand*{\bibfont}{\scriptsize}
+% \setlength\bibitemsep{5pt}
+
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}%
+  \bibopenbracket}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}\bibclosebracket}
+  
+\newcommand{\upcite}[1]{\hyperlink{#1}{\textsuperscript{\cite{#1}}}}
+% \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+
+
+
+\tikzfading[name=fadetitleliner, left color=transparent!100,  right color=transparent!100, middle color=transparent!0]%
+
+\setbeamertemplate{title page}
+{
+
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=0pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    
+    \nointerlineskip%
+    \vskip0.3cm
+    \begin{tikzpicture}[inner sep=0,outer sep=0]
+      \draw [black,line width=1.5pt,scope fading=fadetitleliner] (0,0) -- (\textwidth,0.0cm);
+    \end{tikzpicture}%
+    
+    
+    \ifx\insertauthor\@empty
+    \else
+    \begin{beamercolorbox}[sep=4pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \fi
+    
+    \ifx\insertinstitute\@empty
+    \else
+    \begin{beamercolorbox}[sep=2pt,center]{institute}
+      \usebeamercolor[fg]{institute}\usebeamerfont{institute}\insertinstitute\par
+    \end{beamercolorbox}
+    \fi
+    \nointerlineskip%
+    \vskip0.1cm
+    \begin{tikzpicture}[inner sep=0,outer sep=0]
+      \draw [black,line width=1.5pt,scope fading=fadetitleliner] (0,0) -- (\textwidth,0.0cm);
+    \end{tikzpicture}%
+  
+    \ifx\insertdate\@empty
+    \else
+    \begin{beamercolorbox}[sep=0pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+    \fi
+    \vskip0.5em
+    %{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+
+
+%%%%%%%%%% 图片设置
+%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{caption}[numbered]
+
+\setlength{\floatsep}{3pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
+\setlength{\abovecaptionskip}{1pt} % 图形中的图与标题之间的距离 \liuhao 1pt
+\setlength{\belowcaptionskip}{1pt} % 表格中的表与标题之间的距离
+\usepackage{fancyhdr}
+\usepackage{caption}
+
+\DeclareCaptionFont{capliuhao}{\bfseries\songti\scriptsize}
+% \usepackage{setspace}
+
+\DeclareCaptionFormat{masterfigure}{{#1\textrm{#2}#3}} %\liuhao 1pt
+\DeclareCaptionFormat{mastertable}{{#1\textrm{#2}#3}} %xiugaile 表格标题font yong beamer caption
+\DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+
+\captionsetup[figure]{format=masterfigure,labelsep=space}
+\captionsetup[table]{format=mastertable,labelsep=space}
+\captionsetup[lstlisting]{format=masterlstlisting,labelsep=quad}
+\renewcommand{\thefigure}{{\arabic{figure}}:}
+\renewcommand{\thetable}{{\arabic{table}}:}
+\renewcommand{\theequation}{\arabic{equation}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer inner theme end %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%outer themes define headlines, footlines, sidebar, ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer outer theme %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Settings
+
+\tikzfading[name=fade right, left color=transparent!0, right color=transparent!100]%
+
+
+\newlength{\newheadheight}
+\setlength{\newheadheight}{0.6cm}
+\newlength{\newfootheight}
+\setlength{\newfootheight}{0.4cm}
+\newlength{\newframetitleheight}
+\setlength{\newframetitleheight}{1.6cm}
+\newlength{\newmaintextheight}
+%\setlength{\newmaintextheight}{\paperheight - \newheadheight- \newfootheight - \newframetitleheight}
+
+\setbeamertemplate{background}{%
+
+  \ifnum \value{page}=1%
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center,yshift=0pt] at (current page.center) {\includegraphics[width=\paperwidth]{image/background}};
+        \node[anchor=north west,yshift=0pt] at (current page.north west) {\includegraphics[height=0.8cm]{image/buaamarkandname1}};
+    \end{tikzpicture}
+  \else
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,yshift=-0.04cm,xshift=-0.04cm,inner sep=0pt] at (current page.north east) {\includegraphics[height=0.5cm]{image/buaamarkandname1}};
+        \node[anchor=south east,yshift=0pt] at (current page.south east) {\includegraphics[height=8cm]{image/buaamarkM1}};
+    \end{tikzpicture}
+  \fi%
+}%
+
+
+
+\setbeamertemplate{headline}
+{
+    \leavevmode%
+
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[inner sep=0pt,outer sep=0pt,anchor=north west,scope fading=fade right] at(0,0) {\includegraphics[height=\newheadheight,width=\paperwidth]{image/Blue-Space-headline}};
+    \end{tikzpicture}%
+    
+      
+  \vbox to \newheadheight{\vfil{%
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.125ex,dp=0.5ex,left,ignorebg%
+    ]{section in head/foot}
+    \usebeamerfont{section in head/foot}%
+    \usebeamercolor[fg]{section in head/foot}%
+    \insertsectionnavigationhorizontal{0.5\paperwidth}{}{\hskip0pt plus1filll}
+  \end{beamercolorbox}
+
+  
+  \ifx\insertsubsection\@empty%
+  \else
+  \vskip0.5ex%
+  \hskip0.2cm%
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.125ex,dp=0.5ex,left,ignorebg%
+      ]{subsection in head/foot}
+    \usebeamerfont{subsection in head/foot}%
+    \usebeamercolor[fg]{subsection in head/foot}%
+    \insertsubsectionnavigationhorizontal{0.5\paperwidth}{}{\hskip0pt plus1filll}
+  \end{beamercolorbox}
+    \fi%
+    }\vfil%
+    }%
+
+
+  %line
+  {\color{black}\rule{\paperwidth}{0.25pt}}%
+
+}%
+
+
+
+\setbeamertemplate{frametitle}
+{
+  \nointerlineskip%
+  %\vskip-2pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.3cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \insertframetitle%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+%             \setlength{\parskip}{-0.3ex}%
+%             \renewcommand{\baselinestretch}{0.5}%
+            \strut\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+            %\vskip0.2ex%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+          
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 0.4ex%
+      
+    \begin{tikzpicture}
+      \node[inner sep=0pt,outer sep=0pt,anchor=north west,scope fading=fade right] at(0,0) {\includegraphics[height=\beamer@tempdim,width=\paperwidth]{image/Blue-Sky-title}};
+    \end{tikzpicture}%
+      
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+  \nointerlineskip%
+  {\noindent\makebox[\linewidth]{\color{black}\rule{\paperwidth}{.25pt}}}%
+
+}
+
+
+\setbeamertemplate{footline}
+{%
+
+\leavevmode%
+    {\color{black}\rule{\paperwidth}{0.25pt}}%
+
+\vbox{%
+\leavevmode%
+
+    \begin{tikzpicture}
+      \node[inner sep=0pt,outer sep=0pt,anchor=north west,scope fading=fade right] at(0,0) {\includegraphics[height=\newfootheight,width=\paperwidth]{image/Blue-Sea-footline}};
+    \end{tikzpicture}%
+    
+    
+    \vskip-\newfootheight%
+
+\vbox to \newfootheight{\vfil{%
+
+  \hbox{%
+
+  \begin{beamercolorbox}[leftskip=.1cm,wd=0.25\paperwidth,ht=2.125ex,dp=0.5ex,ignorebg]{Location bar}
+    \raisebox{-0.5ex}{\insertbackfindforwardnavigationsymbol}
+  \end{beamercolorbox}%
+  
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.125ex,dp=0.5ex,center,ignorebg]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \insertshortauthor~|~\insertshorttitle
+    \hfill
+  \end{beamercolorbox}%
+  
+  \begin{beamercolorbox}[rightskip=.1cm,wd=0.25\paperwidth,ht=2.125ex,dp=0.5ex,ignorebg]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \hfill
+    \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}%
+  
+  }%
+  
+  }\vfil%
+  }%
+
+}%
+  
+}
+
+\beamertemplatenavigationsymbolsempty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% beamer outer theme end %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\mode<all>
